@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b3yqxvmkwn4y0"]
+
+[ext_resource type="Script" path="res://Scripts/Piquet/PiquetTestScene.cs" id="1_test"]
+
+[node name="PiquetTestScene" type="Node"]
+script = ExtResource("1_test")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "皮克牌 (Piquet)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "按空格键自动测试
+按 R 键重新开始
+按 P 键打印状态
+
+查看控制台输出获取详细信息"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "状态：准备中..."
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "玩家1: 0分 | 玩家2: 0分"
+horizontal_alignment = 1
