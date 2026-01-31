@@ -58,11 +58,11 @@ namespace PiquetGame
         {
             string suitPrefix = Suit switch
             {
-                Suit.Hearts => "f",
-                Suit.Diamonds => "x",
+                Suit.Hearts => "x",
+                Suit.Diamonds => "f",
                 Suit.Clubs => "m",
                 Suit.Spades => "t",
-                _ => "f"
+                _ => "x"
             };
 
             int rankNumber = Rank switch
@@ -78,7 +78,7 @@ namespace PiquetGame
                 _ => 1
             };
 
-            return $"{suitPrefix}{rankNumber} (2).svg";
+            return $"{suitPrefix}{rankNumber}@3x.png";
         }
 
         /// <summary>

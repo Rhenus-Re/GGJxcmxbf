@@ -7,18 +7,30 @@ script = ExtResource("1_gamescript")
 
 [node name="PlayerHandArea" type="MarginContainer" parent="." unique_id=1488858340]
 offset_left = 50.0
-offset_top = 400.0
+offset_top = 726.0
 offset_right = 1870.0
-offset_bottom = 700.0
+offset_bottom = 1026.0
 
 [node name="Playerhand" type="HBoxContainer" parent="PlayerHandArea" unique_id=627920801]
 layout_mode = 2
 
 [node name="ComHandArea" type="MarginContainer" parent="." unique_id=755707542]
 offset_left = 50.0
-offset_top = 80.0
+offset_top = 172.0
 offset_right = 1870.0
-offset_bottom = 280.0
+offset_bottom = 372.0
 
 [node name="Comhand" type="HBoxContainer" parent="ComHandArea" unique_id=1305990364]
 layout_mode = 2
+
+[node name="Playeroutcard" type="MarginContainer" parent="." unique_id=1247850529]
+offset_left = 201.0
+offset_top = 519.0
+offset_right = 201.0
+offset_bottom = 519.0
+
+[node name="Comoutcard" type="MarginContainer" parent="." unique_id=335843808]
+offset_left = 1348.0
+offset_top = 509.0
+offset_right = 1348.0
+offset_bottom = 509.0

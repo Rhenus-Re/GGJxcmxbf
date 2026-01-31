@@ -12,10 +12,10 @@ namespace PiquetGame
         private bool isFaceUp = true;
         
         [Export]
-        public string CardResourcePath { get; set; } = "res://Src/cards/SVG/";
+        public string CardResourcePath { get; set; } = "res://Src/cards/3x/";
         
         [Export]
-        public string BackCardPath { get; set; } = "res://Src/cards/SVG/back (2).svg";
+        public string BackCardPath { get; set; } = "res://Src/cards/3x/back@3x.png";
 
         /// <summary>
         /// 设置要显示的卡牌

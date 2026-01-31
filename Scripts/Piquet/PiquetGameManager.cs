@@ -72,7 +72,7 @@ namespace PiquetGame
         public delegate void DeclarationCompleteEventHandler();
         
         [Signal]
-        public delegate void TrickWonEventHandler(string playerName);
+        public delegate void TrickWonEventHandler(string playerName, int trickScore, int totalTricks);
         
         [Signal]
         public delegate void RoundEndedEventHandler();
@@ -146,13 +146,12 @@ namespace PiquetGame
             PlayerHand firstPlayer = Player1Role == PlayerRole.NonDealer ? Player1 : Player2;
             PlayerHand secondPlayer = Player1Role == PlayerRole.Dealer ? Player1 : Player2;
             
-            // 发牌：交替发给两位玩家，每次2或3张
-            for (int i = 0; i < 4; i++)
-            {
-                int cardsPerDeal = (i % 2 == 0) ? 3 : 2;
-                firstPlayer.AddCards(deck.DrawCards(cardsPerDeal));
-                secondPlayer.AddCards(deck.DrawCards(cardsPerDeal));
-            }
+            // 发牌：交替发给两位玩家，每人12张
+            // 传统皮克牌发牌方式：每次发2或3张，共发4轮，每人12张
+            // 第1轮: 2张, 第2轮: 3张, 第3轮: 3张, 第4轮: 4张 (2+3+3+4=12)
+            // 或者简化为：每人直接发12张
+            firstPlayer.AddCards(deck.DrawCards(12));
+            secondPlayer.AddCards(deck.DrawCards(12));
             
             // 剩余8张作为底牌
             for (int i = 0; i < 8; i++)
@@ -242,10 +241,12 @@ namespace PiquetGame
             
             // 进入出牌阶段
             CurrentPhase = GamePhase.Playing;
-            EmitSignal(SignalName.PhaseChanged, (int)CurrentPhase);
             
-            // 非发牌员先出牌
+            // 非发牌员先出牌 - 必须在发射信号前设置，这样UI才能正确显示
             CurrentPlayer = GetNonDealer();
+            GD.Print($"出牌阶段开始，先手玩家: {CurrentPlayer.PlayerName}");
+            
+            EmitSignal(SignalName.PhaseChanged, (int)CurrentPhase);
         }
 
         /// <summary>
@@ -296,6 +297,21 @@ namespace PiquetGame
             return Player1Role == PlayerRole.NonDealer ? Player1 : Player2;
         }
 
+        /// <summary>
+        /// 获取底牌剩余数量
+        /// </summary>
+        public int GetTalonCount()
+        {
+            return talon.Count;
+        }
+
+        /// <summary>
+        /// 获取底牌列表（用于显示）
+        /// </summary>
+        public List<Card> GetTalon()
+        {
+            return talon;
+        }
         /// <summary>
         /// 打印游戏状态
         /// </summary>

@@ -69,13 +69,9 @@ namespace PiquetGame
         /// </summary>
         private bool IsValidFollow(PlayerHand player, Card followCard, Card leadCard)
         {
-            // 如果出的是相同花色，合法
-            if (followCard.Suit == leadCard.Suit)
-                return true;
-
-            // 如果手中没有领出的花色，可以出其他牌（但必输此墩）
-            bool hasSameSuit = player.Cards.Any(c => c.Suit == leadCard.Suit);
-            return !hasSameSuit;
+            // 允许出任何牌 - 玩家可以选择不跟同花色来故意输掉这一墩
+            // 如果出的是不同花色，会自动输掉这一墩
+            return true;
         }
 
         /// <summary>
@@ -109,9 +105,13 @@ namespace PiquetGame
             else
                 player2Tricks++;
 
-            GD.Print($">>> {trickWinner.PlayerName} 赢得此墩！(当前已赢{(trickWinner == Player1 ? player1Tricks : player2Tricks)}墩)");
+            // 计算这墩得分（每墩1分）
+            int trickScore = 1;
+            int totalTricks = trickWinner == Player1 ? player1Tricks : player2Tricks;
+
+            GD.Print($">>> {trickWinner.PlayerName} 赢得此墩！(当前已赢{totalTricks}墩)");
             
-            EmitSignal(SignalName.TrickWon, trickWinner.PlayerName);
+            EmitSignal(SignalName.TrickWon, trickWinner.PlayerName, trickScore, totalTricks);
 
             // 清空当前牌墩
             currentTrick.Clear();
