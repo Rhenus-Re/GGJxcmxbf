@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://b5dtqkfa4f01s"]
+
+[ext_resource type="Script" uid="uid://dgixqo2vi8qth" path="res://Scripts/Conversionwith1.cs" id="1_y5btc"]
+[ext_resource type="Texture2D" uid="uid://bms54uoet0x0d" path="res://Src/第三页/矩形 7.png" id="2_en01d"]
+[ext_resource type="Texture2D" uid="uid://biiv7rtub56vo" path="res://Src/第三页/图层 3.png" id="3_y5btc"]
+[ext_resource type="Texture2D" uid="uid://c1e4ck13bg65t" path="res://Src/第三页/Chase the  Mist.png" id="4_e16gc"]
+[ext_resource type="Texture2D" uid="uid://cf24bfmrpvqf6" path="res://Src/第三页/牌桌.png" id="5_yxw5x"]
+[ext_resource type="Texture2D" uid="uid://ct8i0pv73unog" path="res://Src/第三页/设置.png" id="6_acoeo"]
+[ext_resource type="Texture2D" uid="uid://dhajyu115vea4" path="res://Src/第三页/图层 4 拷贝.png" id="7_0bptv"]
+[ext_resource type="Texture2D" uid="uid://h8xhwbefqm0e" path="res://Src/第三页/主角.png" id="8_2bnrh"]
+[ext_resource type="Texture2D" uid="uid://dj2sw5y4re51w" path="res://Src/第三页/敌人.png" id="9_55q08"]
+[ext_resource type="PackedScene" uid="uid://br7bb6k5e8p1i" path="res://Scenes/bloodblue.tscn" id="10_ugxry"]
+[ext_resource type="PackedScene" uid="uid://ygf35agp3b62" path="res://Scenes/bloodyellow.tscn" id="11_notqq"]
+[ext_resource type="Texture2D" uid="uid://dbaoptp06n2e0" path="res://Src/第三页/线索.png" id="12_c66th"]
+[ext_resource type="Texture2D" uid="uid://c4espujgkf0br" path="res://Src/wordspop/playerword.png" id="13_y5btc"]
+[ext_resource type="Texture2D" uid="uid://dmpajusoc7avk" path="res://Src/wordspop/comwords.png" id="14_e16gc"]
+[ext_resource type="FontFile" uid="uid://p27f0tfy8hq3" path="res://Src/font/幼圆.ttf" id="14_yxw5x"]
+
+[node name="GameScene" type="Node2D" unique_id=1182770839]
+script = ExtResource("1_y5btc")
+
+[node name="矩形7" type="Sprite2D" parent="." unique_id=930924826]
+position = Vector2(962, 545)
+texture = ExtResource("2_en01d")
+
+[node name="图层3" type="Sprite2D" parent="." unique_id=1778216062]
+position = Vector2(966, 548)
+texture = ExtResource("3_y5btc")
+
+[node name="ChaseTheMist" type="Sprite2D" parent="." unique_id=455391838]
+position = Vector2(325, 211)
+texture = ExtResource("4_e16gc")
+
+[node name="牌桌" type="Sprite2D" parent="." unique_id=133529508]
+position = Vector2(946, 573)
+texture = ExtResource("5_yxw5x")
+
+[node name="设置" type="Sprite2D" parent="." unique_id=348622290]
+position = Vector2(1837, 89)
+texture = ExtResource("6_acoeo")
+
+[node name="图层4拷贝" type="Sprite2D" parent="." unique_id=302128338]
+position = Vector2(960, 869)
+scale = Vector2(1.04, 1)
+texture = ExtResource("7_0bptv")
+
+[node name="主角" type="Sprite2D" parent="." unique_id=1421343666]
+position = Vector2(172, 802)
+texture = ExtResource("8_2bnrh")
+
+[node name="敌人" type="Sprite2D" parent="." unique_id=371163002]
+position = Vector2(1664, 218)
+texture = ExtResource("9_55q08")
+
+[node name="bloodblue" parent="." unique_id=1959697250 instance=ExtResource("10_ugxry")]
+position = Vector2(525, 973)
+
+[node name="bloodyellow" parent="." unique_id=264994854 instance=ExtResource("11_notqq")]
+position = Vector2(1294, 115)
+
+[node name="线索" type="Sprite2D" parent="." unique_id=1108271862]
+position = Vector2(508, 655)
+texture = ExtResource("12_c66th")
+
+[node name="Playerwords" type="NinePatchRect" parent="." unique_id=36803313]
+offset_left = 319.0
+offset_top = 502.0
+offset_right = 415.0
+offset_bottom = 566.0
+texture = ExtResource("13_y5btc")
+region_rect = Rect2(0, 0, 463, 168)
+patch_margin_left = 80
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 48
+
+[node name="Label" type="Label" parent="Playerwords" unique_id=576881545]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.06978531, 0.09244201, 0.12777513, 1)
+theme_override_fonts/font = ExtResource("14_yxw5x")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="Comwords" type="NinePatchRect" parent="." unique_id=608805085]
+offset_left = 1427.0
+offset_top = 88.0
+offset_right = 1543.0
+offset_bottom = 164.0
+texture = ExtResource("14_e16gc")
+region_rect = Rect2(0, 0, 464, 176)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 80
+patch_margin_bottom = 48
+
+[node name="Label" type="Label" parent="Comwords" unique_id=2009363186]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 9.0
+offset_right = -20.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.07058824, 0.09411765, 0.12941177, 1)
+theme_override_fonts/font = ExtResource("14_yxw5x")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3

@@ -78,7 +78,7 @@ namespace PiquetGame
                 _ => 1
             };
 
-            return $"{suitPrefix}{rankNumber}@3x.png";
+            return $"{suitPrefix}{rankNumber}.png";
         }
 
         /// <summary>

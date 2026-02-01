@@ -70,6 +70,10 @@ namespace PiquetGame
             playerOutcardArea = GetNode<MarginContainer>("Playeroutcard");
             comOutcardArea = GetNode<MarginContainer>("Comoutcard");
             
+            // 设置手牌容器的负间距，让牌重叠显示
+            playerHand.AddThemeConstantOverride("separation", -80);
+            computerHand.AddThemeConstantOverride("separation", -80);
+
             // 创建模糊遮罩
             CreateBlurOverlay();
             
@@ -401,6 +405,13 @@ namespace PiquetGame
         {
             roundEndPanel.Visible = false;
             blurOverlay.Visible = false;
+            
+            // 如果游戏还没结束，开始新回合并播放发牌动画
+            if (gameManager.CurrentPhase != GamePhase.GameOver)
+            {
+                GD.Print($"\n--- 开始第 {gameManager.CurrentRound} 局 ---");
+                gameManager.StartNewRound();
+            }
         }
 
         /// <summary>
@@ -688,6 +699,7 @@ namespace PiquetGame
             // 增加发牌会话ID，使之前的定时器失效
             dealingSessionId++;
             
+
             // 显示玩家手牌（正面，可交互，带动画）
             ShowHandWithAnimation(playerHand, gameManager.Player1.Cards, true, true);
             
@@ -708,6 +720,13 @@ namespace PiquetGame
             
             // 记录当前会话ID，用于检查定时器是否过期
             int currentSession = dealingSessionId;
+            
+            // TODO: 播放发牌音效
+            // 如果需要添加音效，可以在这里使用 AudioStreamPlayer 播放声音
+            var audioPlayer = new AudioStreamPlayer();
+            AddChild(audioPlayer);
+            audioPlayer.Stream = GD.Load<AudioStream>("res://Src/audio/washcard.wav");
+            audioPlayer.Play();
             
             // 逐张创建卡牌并播放动画
             for (int i = 0; i < cards.Count; i++)
@@ -750,7 +769,7 @@ namespace PiquetGame
             cardVisual.SetCard(card, false);
             
             // 设置显示属性（增大尺寸以提高SVG渲染质量）
-            cardVisual.CustomMinimumSize = new Vector2(150, 225);
+            cardVisual.CustomMinimumSize = new Vector2(180, 270);
             cardVisual.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
             cardVisual.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
             
@@ -810,6 +829,9 @@ namespace PiquetGame
         /// </summary>
         private void ShowHand(HBoxContainer container, List<Card> cards, bool faceUp, bool clickable)
         {
+            // 增加发牌会话ID，使之前的发牌动画定时器失效
+            dealingSessionId++;
+            
             // 清空现有卡牌
             ClearContainer(container);
 
@@ -823,7 +845,7 @@ namespace PiquetGame
                 cardVisual.SetCard(card, faceUp);
                 
                 // 设置显示属性（增大尺寸以提高SVG渲染质量）
-                cardVisual.CustomMinimumSize = new Vector2(150, 225);
+                cardVisual.CustomMinimumSize = new Vector2(180, 270);
                 cardVisual.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
                 cardVisual.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
                 
@@ -870,7 +892,7 @@ namespace PiquetGame
             cardVisual.SetCard(card, true);
             
             // 设置显示属性
-            cardVisual.CustomMinimumSize = new Vector2(150, 225);
+            cardVisual.CustomMinimumSize = new Vector2(180, 270);
             cardVisual.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
             cardVisual.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
         }
@@ -1345,8 +1367,8 @@ namespace PiquetGame
             GD.Print($"牌墩统计 - 玩家: {p1Tricks}墩, 电脑: {p2Tricks}墩");
             GD.Print($"当前得分 - 玩家: {gameManager.Player1.Score}分, 电脑: {gameManager.Player2.Score}分");
             
-            // 立即保存当前回合数，因为延迟后CurrentRound会被增加
-            int roundToShow = gameManager.CurrentRound;
+            // 游戏管理器在触发OnRoundEnded时可能已经增加了CurrentRound，所以需要减1来显示刚结束的回合
+            int roundToShow = gameManager.CurrentRound - 1;
             int p1ScoreToShow = gameManager.Player1.Score;
             int p2ScoreToShow = gameManager.Player2.Score;
             

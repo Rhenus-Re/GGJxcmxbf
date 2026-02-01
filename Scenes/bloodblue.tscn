@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://br7bb6k5e8p1i"]
+
+[ext_resource type="Script" uid="uid://dg22jx28n737t" path="res://Scripts/Blood.cs" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dg4mbm4aeln4x" path="res://Src/第三页/主角血条.png" id="1_xn0kp"]
+
+[node name="Node2D" type="Node2D" unique_id=1959697250]
+script = ExtResource("1_script")
+
+[node name="底色" type="Sprite2D" parent="." unique_id=1334922075]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(0, 2)
+texture = ExtResource("1_xn0kp")
+region_enabled = true
+
+[node name="主角血条" type="Sprite2D" parent="." unique_id=672875571]
+position = Vector2(0, 1)
+texture = ExtResource("1_xn0kp")
+region_enabled = true

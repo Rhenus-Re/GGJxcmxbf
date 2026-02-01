@@ -147,19 +147,18 @@ namespace PiquetGame
             GD.Print($"{Player2.PlayerName}: 赢得{player2Tricks}墩，获得{player2TrickScore}分");
             GD.Print($"\n本局总分 - {Player1.PlayerName}: {Player1.Score}分, {Player2.PlayerName}: {Player2.Score}分");
 
-            EmitSignal(SignalName.RoundEnded);
-
             // 检查游戏是否结束
             CurrentRound++;
             if (CurrentRound > TotalRounds || Player1.Score >= TargetScore || Player2.Score >= TargetScore)
             {
+                EmitSignal(SignalName.RoundEnded);
                 EndGame();
             }
             else
             {
-                // 交换发牌权
+                // 交换发牌权（但不自动开始新回合，等待UI显示完毕后由GameScene调用）
                 Player1Role = Player1Role == PlayerRole.Dealer ? PlayerRole.NonDealer : PlayerRole.Dealer;
-                StartNewRound();
+                EmitSignal(SignalName.RoundEnded);
             }
         }
 

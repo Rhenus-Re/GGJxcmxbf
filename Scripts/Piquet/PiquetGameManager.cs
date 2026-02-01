@@ -36,7 +36,7 @@ namespace PiquetGame
         // 游戏状态
         public GamePhase CurrentPhase { get; private set; }
         public int CurrentRound { get; private set; }
-        public int TotalRounds { get; set; } = 6;
+        public int TotalRounds { get; set; } = 3;
         public int TargetScore { get; set; } = 100;
 
         // 玩家

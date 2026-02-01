@@ -1,20 +1,58 @@
 [gd_scene format=3 uid="uid://flyvvltspp4a"]
 
 [ext_resource type="Script" uid="uid://3vx1ijbobyrb" path="res://Scripts/Piquet/GameScene.cs" id="1_gamescript"]
+[ext_resource type="Texture2D" uid="uid://bms54uoet0x0d" path="res://Src/第三页/矩形 7.png" id="2_rgj8m"]
+[ext_resource type="Texture2D" uid="uid://biiv7rtub56vo" path="res://Src/第三页/图层 3.png" id="3_2fmhe"]
+[ext_resource type="Texture2D" uid="uid://cf24bfmrpvqf6" path="res://Src/第三页/牌桌.png" id="4_7iton"]
+[ext_resource type="Texture2D" uid="uid://c1e4ck13bg65t" path="res://Src/第三页/Chase the  Mist.png" id="4_ikfsv"]
+[ext_resource type="Texture2D" uid="uid://ct8i0pv73unog" path="res://Src/第三页/设置.png" id="5_ikfsv"]
+[ext_resource type="Texture2D" uid="uid://dhajyu115vea4" path="res://Src/第三页/图层 4 拷贝.png" id="6_5dgvu"]
+[ext_resource type="Texture2D" uid="uid://h8xhwbefqm0e" path="res://Src/第三页/主角.png" id="8_5dgvu"]
+[ext_resource type="Texture2D" uid="uid://dj2sw5y4re51w" path="res://Src/第三页/敌人.png" id="9_ikfsv"]
+[ext_resource type="PackedScene" uid="uid://br7bb6k5e8p1i" path="res://Scenes/bloodblue.tscn" id="10_5dgvu"]
+[ext_resource type="PackedScene" uid="uid://ygf35agp3b62" path="res://Scenes/bloodyellow.tscn" id="11_uscyt"]
+[ext_resource type="Texture2D" uid="uid://dbaoptp06n2e0" path="res://Src/第三页/线索.png" id="12_4xiap"]
 
 [node name="GameScene" type="Node2D" unique_id=1182770839]
 script = ExtResource("1_gamescript")
 
+[node name="矩形7" type="Sprite2D" parent="." unique_id=930924826]
+position = Vector2(962, 545)
+texture = ExtResource("2_rgj8m")
+
+[node name="图层3" type="Sprite2D" parent="." unique_id=1778216062]
+position = Vector2(966, 548)
+texture = ExtResource("3_2fmhe")
+
+[node name="ChaseTheMist" type="Sprite2D" parent="." unique_id=455391838]
+position = Vector2(325, 211)
+texture = ExtResource("4_ikfsv")
+
+[node name="牌桌" type="Sprite2D" parent="." unique_id=133529508]
+position = Vector2(946, 573)
+texture = ExtResource("4_7iton")
+
+[node name="设置" type="Sprite2D" parent="." unique_id=348622290]
+position = Vector2(1837, 89)
+texture = ExtResource("5_ikfsv")
+
+[node name="图层4拷贝" type="Sprite2D" parent="." unique_id=302128338]
+position = Vector2(960, 869)
+scale = Vector2(1.04, 1)
+texture = ExtResource("6_5dgvu")
+
 [node name="PlayerHandArea" type="MarginContainer" parent="." unique_id=1488858340]
-offset_left = 50.0
-offset_top = 726.0
-offset_right = 1870.0
-offset_bottom = 1026.0
+offset_left = 615.99994
+offset_top = 773.0
+offset_right = 2436.0
+offset_bottom = 1073.0
+rotation = -0.11435996
 
 [node name="Playerhand" type="HBoxContainer" parent="PlayerHandArea" unique_id=627920801]
 layout_mode = 2
 
 [node name="ComHandArea" type="MarginContainer" parent="." unique_id=755707542]
+visible = false
 offset_left = 50.0
 offset_top = 172.0
 offset_right = 1870.0
@@ -24,13 +62,31 @@ offset_bottom = 372.0
 layout_mode = 2
 
 [node name="Playeroutcard" type="MarginContainer" parent="." unique_id=1247850529]
-offset_left = 201.0
-offset_top = 519.0
-offset_right = 201.0
-offset_bottom = 519.0
+offset_left = 394.0
+offset_top = 460.0
+offset_right = 394.0
+offset_bottom = 460.0
 
 [node name="Comoutcard" type="MarginContainer" parent="." unique_id=335843808]
-offset_left = 1348.0
-offset_top = 509.0
-offset_right = 1348.0
-offset_bottom = 509.0
+offset_left = 1411.0
+offset_top = 460.0
+offset_right = 1411.0
+offset_bottom = 460.0
+
+[node name="主角" type="Sprite2D" parent="." unique_id=1421343666]
+position = Vector2(172, 802)
+texture = ExtResource("8_5dgvu")
+
+[node name="敌人" type="Sprite2D" parent="." unique_id=371163002]
+position = Vector2(1664, 218)
+texture = ExtResource("9_ikfsv")
+
+[node name="bloodblue" parent="." unique_id=1959697250 instance=ExtResource("10_5dgvu")]
+position = Vector2(525, 973)
+
+[node name="bloodyellow" parent="." unique_id=264994854 instance=ExtResource("11_uscyt")]
+position = Vector2(1294, 115)
+
+[node name="线索" type="Sprite2D" parent="." unique_id=1108271862]
+position = Vector2(508, 655)
+texture = ExtResource("12_4xiap")
