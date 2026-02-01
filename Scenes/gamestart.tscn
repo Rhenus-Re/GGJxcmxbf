@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bq6bcvjxwvkro"]
+
+[ext_resource type="Texture2D" uid="uid://dc3xwaevt2lxh" path="res://Src/第一页/底图.png" id="1_lri7x"]
+[ext_resource type="Script" uid="uid://dcfo1ygk25hki" path="res://Scripts/Gamestart.cs" id="1_q7u10"]
+[ext_resource type="Texture2D" uid="uid://rw36sowqwvld" path="res://Src/第一页/图层 6.png" id="2_pew2l"]
+[ext_resource type="Texture2D" uid="uid://c346h5wjaqbdu" path="res://Src/第一页/图层 5.png" id="3_ma8ia"]
+[ext_resource type="Texture2D" uid="uid://d18bi0f1wo3qd" path="res://Src/第一页/Chase the  Mist.png" id="4_q7u10"]
+[ext_resource type="Texture2D" uid="uid://b1vdfo5bysyy2" path="res://Src/第一页/START.png" id="5_pn85b"]
+[ext_resource type="Texture2D" uid="uid://b4uabwci88i38" path="res://Src/第一页/SAVE.png" id="6_m54p0"]
+[ext_resource type="Texture2D" uid="uid://vxld6vxic12i" path="res://Src/第一页/COLLECTION.png" id="7_lm8l8"]
+[ext_resource type="Texture2D" uid="uid://bd16iuaylfv8j" path="res://Src/第一页/设置 拷贝.png" id="8_pdofl"]
+[ext_resource type="Script" uid="uid://dk6bty5o0gd6o" path="res://Scripts/Setting.cs" id="9_ma8ia"]
+[ext_resource type="PackedScene" uid="uid://nvulus3c46p3" path="res://Scenes/setting.tscn" id="10_q7u10"]
+[ext_resource type="Texture2D" uid="uid://dhak03250gix3" path="res://Src/第一页/middle.png" id="12_pn85b"]
+
+[node name="Node2D" type="Node2D" unique_id=652713826]
+script = ExtResource("1_q7u10")
+
+[node name="底图" type="Sprite2D" parent="." unique_id=1356661153]
+position = Vector2(962, 545)
+texture = ExtResource("1_lri7x")
+
+[node name="图层6" type="Sprite2D" parent="." unique_id=1028590343]
+position = Vector2(1054, 556)
+texture = ExtResource("2_pew2l")
+
+[node name="图层5" type="Sprite2D" parent="." unique_id=945081676]
+position = Vector2(1650, 841)
+texture = ExtResource("3_ma8ia")
+
+[node name="ChaseTheMist" type="Sprite2D" parent="." unique_id=1955197313]
+position = Vector2(503, 345)
+texture = ExtResource("4_q7u10")
+
+[node name="Save" type="Sprite2D" parent="." unique_id=1169054189]
+position = Vector2(359, 893)
+texture = ExtResource("6_m54p0")
+
+[node name="Collection" type="Sprite2D" parent="." unique_id=1205713961]
+position = Vector2(1629, 948)
+texture = ExtResource("7_lm8l8")
+
+[node name="start" type="Button" parent="." unique_id=1983077442]
+offset_left = 167.0
+offset_top = 605.0
+offset_right = 572.0
+offset_bottom = 810.0
+icon = ExtResource("5_pn85b")
+flat = true
+
+[node name="setting" type="Button" parent="." unique_id=912644360]
+offset_left = 1731.0
+offset_top = 72.0
+offset_right = 1739.0
+offset_bottom = 80.0
+icon = ExtResource("8_pdofl")
+flat = true
+script = ExtResource("9_ma8ia")
+
+[node name="Node2D" parent="setting" unique_id=1543120039 instance=ExtResource("10_q7u10")]
+visible = false
+position = Vector2(-776, 483)
+
+[node name="Middle" type="Sprite2D" parent="." unique_id=1567914175]
+visible = false
+position = Vector2(963, 543)
+texture = ExtResource("12_pn85b")

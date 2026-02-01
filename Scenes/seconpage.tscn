@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://d2j1jkkh37fki"]
+
+[ext_resource type="Texture2D" uid="uid://c0rk1kxco2f42" path="res://Src/第二页/底图.png" id="1_oytda"]
+[ext_resource type="Script" uid="uid://cx5ug3pucvfak" path="res://Scripts/Seconpage.cs" id="1_pkcrd"]
+[ext_resource type="Texture2D" uid="uid://cry60vli45mvp" path="res://Src/第二页/地面.png" id="2_eaduv"]
+[ext_resource type="Texture2D" uid="uid://cvyd3q457lvtu" path="res://Src/第二页/形状 1.png" id="3_fth77"]
+[ext_resource type="Texture2D" uid="uid://dbaoptp06n2e0" path="res://Src/第三页/线索.png" id="4_hbuu6"]
+[ext_resource type="Script" uid="uid://b3w2q44stwlu6" path="res://Scripts/Details.cs" id="4_script"]
+[ext_resource type="Texture2D" uid="uid://c2qee5y4nds2f" path="res://Src/第二页/1friend.png" id="5_l8x5d"]
+[ext_resource type="Texture2D" uid="uid://cjjhuw6kygkni" path="res://Src/第二页/2 wife.png" id="6_pkcrd"]
+[ext_resource type="Texture2D" uid="uid://dfc2nmqpwfff6" path="res://Src/第二页/3lawyer.png" id="7_wbanu"]
+[ext_resource type="Texture2D" uid="uid://bhj8ke1xn2vsj" path="res://Src/第二页/死者好友.png" id="8_37f53"]
+[ext_resource type="Texture2D" uid="uid://c4qcxxh8uljfl" path="res://Src/第二页/死者妻子.png" id="9_40u6o"]
+[ext_resource type="Texture2D" uid="uid://cywkcal6m2ftj" path="res://Src/第二页/代理律师.png" id="10_ns4s0"]
+[ext_resource type="Texture2D" uid="uid://xag14x08vesr" path="res://Src/第二页/椭圆 1.png" id="11_vqp7v"]
+[ext_resource type="Texture2D" uid="uid://cokwrggip8fco" path="res://Src/第二页/设置 拷贝 2.png" id="12_fth77"]
+[ext_resource type="Script" uid="uid://dk6bty5o0gd6o" path="res://Scripts/Setting.cs" id="13_hbuu6"]
+[ext_resource type="PackedScene" uid="uid://nvulus3c46p3" path="res://Scenes/setting.tscn" id="14_hbuu6"]
+
+[node name="Node2D" type="Node2D" unique_id=1886776173]
+script = ExtResource("1_pkcrd")
+
+[node name="底图" type="Sprite2D" parent="." unique_id=2067075181]
+position = Vector2(960, 540)
+texture = ExtResource("1_oytda")
+
+[node name="地面" type="Sprite2D" parent="." unique_id=1075640535]
+position = Vector2(963, 921)
+texture = ExtResource("2_eaduv")
+
+[node name="形状1" type="Sprite2D" parent="." unique_id=1927765898]
+position = Vector2(957, 652)
+texture = ExtResource("3_fth77")
+
+[node name="Details" type="Button" parent="." unique_id=2139018382]
+offset_left = 63.0
+offset_top = 801.0
+offset_right = 418.0
+offset_bottom = 1067.0
+icon = ExtResource("4_hbuu6")
+flat = true
+script = ExtResource("4_script")
+
+[node name="W" type="TextureButton" parent="." unique_id=760750952]
+offset_left = 769.0
+offset_top = 133.0
+offset_right = 1260.0
+offset_bottom = 837.0
+texture_normal = ExtResource("6_pkcrd")
+
+[node name="F" type="TextureButton" parent="." unique_id=1265951081]
+offset_left = 354.0
+offset_top = 189.0
+offset_right = 786.0
+offset_bottom = 870.0
+texture_normal = ExtResource("5_l8x5d")
+
+[node name="L" type="TextureButton" parent="." unique_id=912291869]
+offset_left = 1304.0
+offset_top = 275.0
+offset_right = 1834.0
+offset_bottom = 956.0
+texture_normal = ExtResource("7_wbanu")
+
+[node name="死者好友" type="Sprite2D" parent="." unique_id=1200296307]
+position = Vector2(579, 223)
+texture = ExtResource("8_37f53")
+
+[node name="死者妻子" type="Sprite2D" parent="." unique_id=373218447]
+position = Vector2(1176, 319)
+texture = ExtResource("9_40u6o")
+
+[node name="代理律师" type="Sprite2D" parent="." unique_id=443799547]
+position = Vector2(1761, 345)
+texture = ExtResource("10_ns4s0")
+
+[node name="椭圆1" type="Sprite2D" parent="." unique_id=1198198775]
+visible = false
+position = Vector2(467, 518)
+texture = ExtResource("11_vqp7v")
+
+[node name="set" type="Button" parent="." unique_id=2057707853]
+offset_left = 1776.0
+offset_top = 25.0
+offset_right = 1874.0
+offset_bottom = 118.0
+icon = ExtResource("12_fth77")
+flat = true
+script = ExtResource("13_hbuu6")
+
+[node name="Node2D" parent="set" unique_id=1543120039 instance=ExtResource("14_hbuu6")]
+visible = false
+position = Vector2(-801, 490)

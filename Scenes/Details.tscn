@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dui8tsfakhnut"]
+
+[ext_resource type="Texture2D" uid="uid://buaswfrkxpjsr" path="res://Src/第二页/线索 details/书本.png" id="1_0fdvl"]
+[ext_resource type="Texture2D" uid="uid://disx8suly6u0e" path="res://Src/第二页/线索 details/证物.png" id="2_0y8p0"]
+[ext_resource type="Texture2D" uid="uid://q51pgnwjc5gx" path="res://Src/第二页/线索 details/证词.png" id="3_are31"]
+
+[node name="Node2D" type="Node2D" unique_id=1125032676]
+
+[node name="书本" type="Sprite2D" parent="." unique_id=1115539086]
+texture = ExtResource("1_0fdvl")
+
+[node name="证词" type="Button" parent="." unique_id=775152487]
+offset_left = 497.0
+offset_top = -378.0
+offset_right = 733.0
+offset_bottom = -288.0
+icon = ExtResource("3_are31")
+flat = true
+
+[node name="证物" type="Button" parent="." unique_id=727234866]
+offset_left = 499.0
+offset_top = -225.0
+offset_right = 735.0
+offset_bottom = -135.0
+icon = ExtResource("2_0y8p0")
+flat = true
